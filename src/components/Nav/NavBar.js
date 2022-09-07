@@ -5,7 +5,9 @@ import {ReactComponent as HomeIcon} from './icon-nav-home.svg'
 import {ReactComponent as MoviesIcon} from './icon-nav-movies.svg'
 import {ReactComponent as TvIcon} from './icon-nav-tv-series.svg'
 import {ReactComponent as BookmarkIcon} from './icon-nav-bookmark.svg'
-import {ReactComponent as Logo} from './logo.svg'
+import {ReactComponent as SiteLogo} from './logo.svg'
+
+const icons = [<HomeIcon />, <MoviesIcon />, <TvIcon />, <BookmarkIcon />]
 
 const StyledNav = styled.nav`
   padding: 1.5rem 1rem;
@@ -51,17 +53,18 @@ const StyledNav = styled.nav`
   }
 `
 
-const NavBar = ({ activePage }) => {
+const NavBar = ({ activePage, handlePageChange }) => {
+
   return (
     <StyledNav activePage={activePage}>
-      <Logo />
+      <SiteLogo />
       <ul>
-        <HomeIcon id='home'/>
-        <MoviesIcon id='movies'/>
-        <TvIcon id='tv'/>
-        <BookmarkIcon id='bookmarks'/>
+        <HomeIcon id='home' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
+        <MoviesIcon id='movies'onClick={(e) => handlePageChange(e.currentTarget.id)}/>
+        <TvIcon id='tv' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
+        <BookmarkIcon id='bookmarks' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
       </ul>
-      <img src={avatar} alt='profile' className='avatar' />
+      <img src={avatar} alt='avatar' className='avatar' />
     </StyledNav>
   )
 }

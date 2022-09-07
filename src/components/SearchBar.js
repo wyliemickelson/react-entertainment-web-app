@@ -1,8 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {ReactComponent as SearchIcon} from './../assets/icon-search.svg'
+import styled from 'styled-components';
 
-const SearchBar = () => {
+const StyledSearchBar = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  input {
+    width: 100%;
+    outline: none;
+    padding: 0.75rem 0;
+
+    &:focus {
+      border-bottom: 1px solid ${props => props.theme.blue};
+    }
+  }
+`
+
+const SearchBar = ({ categories, value, setValue }) => {
+
+  const handleChange = (e) => setValue(e.target.value);
+
   return (
-    <div>SearchBar</div>
+    <StyledSearchBar onChange={handleChange}>
+      <button><SearchIcon /></button>
+      <input type='text' placeholder={`search for ${categories}`} value={value} />
+    </StyledSearchBar>
   )
 }
 
