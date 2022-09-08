@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import {ReactComponent as SearchIcon} from './../assets/icon-search.svg'
+import {ReactComponent as SearchIcon} from './icon-search.svg'
 import styled from 'styled-components';
 
 const StyledSearchBar = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
+  margin-bottom: 1rem;
 
   input {
     width: 100%;
@@ -25,7 +26,7 @@ const SearchBar = ({ categories, value, setValue }) => {
   return (
     <StyledSearchBar onChange={handleChange}>
       <button><SearchIcon /></button>
-      <input type='text' placeholder={`search for ${categories}`} value={value} />
+      <input type='text' placeholder={`Search for ${categories}`} value={value} />
     </StyledSearchBar>
   )
 }

@@ -8,25 +8,35 @@ const StyledPage = styled.section`
 `
 
 const modules = {
-  home: ['trending', 'recommended'],
-  movies: ['movies'],
-  tv: ['tv'],
-  bookmarks: ['bookmarked movies', 'bookmarked tv'],
+  home: {
+    categories: ['Trending', 'Recommended'],
+    contentTypes: ['Movie', 'TV Series'],
+  },
+  movies: {
+    categories: ['Movies'],
+    contentTypes: ['Movie'],
+  },
+  tv: {
+    categories: ['TV'],
+    contentTypes: ['TV Series'],
+  },
+  bookmarks: {
+    categories: ['Bookmarked Movies', 'Bookmarked TV'],
+    contentTypes: ['Bookmarked', 'Movie', 'TV Series']
+  },
 }
 
 const Page = () => {
   const [activePage, setActivePage] = useState('home');
-  const [activeModules, setActiveModules] = useState(['trending', 'recommended']);
 
   const handlePageChange = (pageName) => {
     setActivePage(pageName);
-    setActiveModules(modules[pageName]);
   }
 
   return (
     <StyledPage>
       <NavBar activePage={activePage} handlePageChange={handlePageChange} />
-      <PageContent activeModules={activeModules} searchCategories={modules[activePage]}>
+      <PageContent activeCategories={modules[activePage].contentTypes} searchCategories={modules[activePage].categories}>
       </PageContent>
     </StyledPage>
   )
