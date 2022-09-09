@@ -16,7 +16,7 @@ const StyledPageContent = styled.section`
   }
 `
 
-const PageContent = ({ activeModules }) => {
+const PageContent = ({ activeModules, screenSize }) => {
   const [contentList, setContentList] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
@@ -28,10 +28,10 @@ const PageContent = ({ activeModules }) => {
 
   const filterContent = (moduleName) => {
     if (moduleName === 'Trending') {
-      return contentList.filter((media) => media.isTrending );
+      return contentList.filter((media) => media.isTrending);
     }
     if (moduleName === 'Recommended') {
-      return contentList.filter((media) => media.isRecommended );
+      return contentList.filter((media) => media.isRecommended);
     }
     if (moduleName.includes('Bookmarked')) {
       let type = moduleName.split(' ')[1];
@@ -39,18 +39,18 @@ const PageContent = ({ activeModules }) => {
       return contentList.filter((media) => media.isBookmarked && media.category === type)
     }
     if (moduleName === 'Movies') {
-      return contentList.filter((media) => isMovie(media) );
+      return contentList.filter((media) => isMovie(media));
     }
-    return contentList.filter((media) => media.category === 'TV' );
+    return contentList.filter((media) => media.category === 'TV');
   }
 
   return (
     <StyledPageContent>
       <SearchBar categories={activeModules} value={searchValue} setValue={setSearchValue} />
       {activeModules.map((module) => {
-        return module === 'Trending' 
-        ? <TrendingModule name={module} contentList={filterContent(module)} key={module} />
-        : <ContentModule name={module} contentList={filterContent(module)} key={module} /> 
+        return module === 'Trending'
+          ? <TrendingModule name={module} contentList={filterContent(module)} key={module} screenSize={screenSize} />
+          : <ContentModule name={module} contentList={filterContent(module)} key={module} screenSize={screenSize} />
       })}
     </StyledPageContent>
   )

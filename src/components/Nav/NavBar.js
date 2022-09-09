@@ -10,6 +10,7 @@ import {ReactComponent as SiteLogo} from './logo.svg'
 const icons = [<HomeIcon />, <MoviesIcon />, <TvIcon />, <BookmarkIcon />]
 
 const StyledNav = styled.nav`
+
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: row;
@@ -51,12 +52,32 @@ const StyledNav = styled.nav`
     border: 2px solid white;
     border-radius: 50%;
   }
+
+  ${props => props.screenSize === 'large' && `
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      height: 95vh;
+      padding: 2rem;
+      margin-left: 1rem;
+      border-radius: 10px;
+
+      ul {
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-bottom: 50vh;
+      }
+
+      > img {
+        max-width: 100%;
+      }
+  `}
 `
 
-const NavBar = ({ activePage, handlePageChange }) => {
+const NavBar = ({ activePage, handlePageChange, screenSize }) => {
 
   return (
-    <StyledNav activePage={activePage}>
+    <StyledNav activePage={activePage} screenSize={screenSize}>
       <SiteLogo />
       <ul>
         <HomeIcon id='home' onClick={(e) => handlePageChange(e.currentTarget.id)}/>

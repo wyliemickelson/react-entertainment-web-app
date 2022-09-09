@@ -7,7 +7,9 @@ import styled from 'styled-components';
 const StyledMediaDetails = styled.div`
   display: flex;
   align-items: center;
-  font-size: 13px;
+  p {
+    font-size: 0.7rem;
+  }
 
   svg path {
     fill: white;

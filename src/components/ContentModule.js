@@ -5,23 +5,26 @@ import styled from 'styled-components';
 const StyledContentModule = styled.section`
   ul {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1rem;
-    grid-row-gap: 1.25rem;
+    grid-template-columns: repeat(${props => props.columns}, 1fr);
+    grid-column-gap: clamp(1rem, 2%, 2%);
+    grid-row-gap: clamp(1.25rem, 1%, 1%);
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
   }
 `
 
-const ContentModule = ({ name, contentList }) => {
+const ContentModule = ({ name, contentList, screenSize }) => {
+
+  const moduleColumns = screenSize === 'large' ? 4 : screenSize === 'medium' ? 3 : 2;
+
   return (
-    <StyledContentModule>
+    <StyledContentModule columns={moduleColumns}>
       <h1>{name}</h1>
       <ul>
-        {contentList.map((media) => <MediaInstance mediaData={media} key={media.title} /> )}
+        {contentList.map((media) => <MediaInstance mediaData={media} key={media.title} screenSize={screenSize} />)}
       </ul>
     </StyledContentModule>
   )

@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from './Nav/NavBar'
 import styled from 'styled-components';
 import PageContent from './PageContent'
-import SearchBar from './SearchBar';
 
 const StyledPage = styled.section`
-  
+  ${props => props.screenSize === 'large' && `
+      display: flex;
+      margin-top: 2.5vh;
+  `}
 `
 
 const modules = {
@@ -17,16 +19,32 @@ const modules = {
 
 const Page = () => {
   const [activePage, setActivePage] = useState('home');
+  const [screenSize, setscreenSize] = useState('small');
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowResize);
+    handleWindowResize();
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    }
+  }, [])
+
+  const handleWindowResize = () => {
+    const windowWidth = window.innerWidth;
+    let size = windowWidth >= 1000 ? 'large' : windowWidth >= 650 ? 'medium' : 'small';
+    setscreenSize(size);
+  }
 
   const handlePageChange = (pageName) => {
     setActivePage(pageName);
   }
 
+
   return (
-    <StyledPage>
-      <NavBar activePage={activePage} handlePageChange={handlePageChange} />
-      <PageContent activeModules={modules[activePage]}>
-      </PageContent>
+    <StyledPage screenSize={screenSize}>
+      <NavBar activePage={activePage} handlePageChange={handlePageChange} screenSize={screenSize} />
+      <PageContent activeModules={modules[activePage]} screenSize={screenSize} />
     </StyledPage>
   )
 }

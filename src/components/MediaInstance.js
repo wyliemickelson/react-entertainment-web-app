@@ -5,8 +5,9 @@ import Bookmark from './Bookmark';
 
 const StyledMediaInstance = styled.div`
   position: relative;
+  max-width: 560px;
   ${props => props.isTrending && `
-      width: 200px;
+      width: 70%;
   `}
 
   img {
@@ -14,7 +15,7 @@ const StyledMediaInstance = styled.div`
   }
 
   h2 {
-    font-size: 17px;
+    font-size: 1rem;
   }
 
   > div {
@@ -26,13 +27,15 @@ const StyledMediaInstance = styled.div`
   }
 `
 
-const MediaInstance = ({ mediaData, isTrending }) => {
+const MediaInstance = ({ mediaData, isTrending, screenSize }) => {
 
-  const imagePath = isTrending ? mediaData.thumbnail.trending.small : mediaData.thumbnail.regular.small;
+  let trendingscreenSize = screenSize;
+  if (screenSize === 'medium') trendingscreenSize = 'large'
+  const imagePath = isTrending ? mediaData.thumbnail.trending[trendingscreenSize] : mediaData.thumbnail.regular[screenSize];
 
   return (
     <StyledMediaInstance isTrending={isTrending}>
-      <img src={require(`${imagePath}`)} />
+      <img src={require(`${imagePath}`)} alt='media' />
       <Bookmark isMarked={mediaData.isBookmarked} />
       <div>
         <MediaDetails mediaData={mediaData} />

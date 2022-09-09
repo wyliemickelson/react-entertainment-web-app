@@ -32,4 +32,10 @@ export const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
+
+  @media only screen and (min-width: 600px) {
+    * {
+      font-size: 20px;
+    }
+  }
 `
