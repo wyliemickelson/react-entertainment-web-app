@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import {ReactComponent as SearchIcon} from './icon-search.svg'
+import {ReactComponent as SearchIcon} from './assets/icon-search.svg'
 import styled from 'styled-components';
 
 const StyledSearchBar = styled.div`

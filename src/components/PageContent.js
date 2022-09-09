@@ -1,14 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import SearchBar from './SearchBar'
 import styled from 'styled-components';
-import ContentModule from './ContentModule';
 import contentData from '../data.json';
+import ContentModule from './ContentModule';
+
 
 const StyledPageContent = styled.section`
+  width: 95%;
+  margin: 0 auto;
   padding: 1rem;
+
+  section + section {
+    margin-top: 2rem;
+  }
 `
 
-const PageContent = ({ searchCategories, activeCategories }) => {
+const PageContent = ({ activeModules }) => {
   const [contentList, setContentList] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
@@ -16,14 +23,30 @@ const PageContent = ({ searchCategories, activeCategories }) => {
     setContentList(contentData);
   }, [])
 
-  const filterContentList = (type) => {
-    return contentList.filter((media) => media.category === type);
+  const isMovie = (media) => media.category === 'Movie';
+
+  const filterContent = (moduleName) => {
+    if (moduleName === 'Trending') {
+      return contentList.filter((media) => media.isTrending );
+    }
+    if (moduleName === 'Recommended') {
+      return contentList.filter((media) => media.isRecommended );
+    }
+    if (moduleName.includes('Bookmarked')) {
+      let type = moduleName.split(' ')[1];
+      if (type === 'Movies') type = 'Movie';
+      return contentList.filter((media) => media.isBookmarked && media.category === type)
+    }
+    if (moduleName === 'Movies') {
+      return contentList.filter((media) => isMovie(media) );
+    }
+    return contentList.filter((media) => media.category === 'TV' );
   }
 
   return (
     <StyledPageContent>
-      <SearchBar categories={searchCategories} value={searchValue} setValue={setSearchValue} />
-      {activeCategories.map((type) => <ContentModule type={type} key={type} filteredContent={filterContentList(type)} />)}
+      <SearchBar categories={activeModules} value={searchValue} setValue={setSearchValue} />
+      {activeModules.map((module) => <ContentModule name={module} contentList={filterContent(module)} key={module} /> )}
     </StyledPageContent>
   )
 }

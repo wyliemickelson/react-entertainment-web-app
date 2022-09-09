@@ -16,6 +16,7 @@
     "category": "Movie",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": true
   },
   {
@@ -35,6 +36,7 @@
     "category": "Movie",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": false,
     "isTrending": true
   },
   {
@@ -51,9 +53,10 @@
       }
     },
     "year": 2019,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "E",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": true
   },
   {
@@ -73,6 +76,7 @@
     "category": "Movie",
     "rating": "18+",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": true
   },
   {
@@ -89,9 +93,10 @@
       }
     },
     "year": 2018,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "PG",
     "isBookmarked": true,
+    "isRecommended": false,
     "isTrending": true
   },
   {
@@ -107,6 +112,7 @@
     "category": "Movie",
     "rating": "E",
     "isBookmarked": false,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -119,9 +125,10 @@
       }
     },
     "year": 2019,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -137,6 +144,7 @@
     "category": "Movie",
     "rating": "18+",
     "isBookmarked": true,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -152,6 +160,7 @@
     "category": "Movie",
     "rating": "E",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -164,9 +173,10 @@
       }
     },
     "year": 2016,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -179,9 +189,10 @@
       }
     },
     "year": 2016,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "18+",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -197,6 +208,7 @@
     "category": "Movie",
     "rating": "E",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -209,9 +221,10 @@
       }
     },
     "year": 2016,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -224,9 +237,10 @@
       }
     },
     "year": 2015,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "E",
     "isBookmarked": true,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -242,6 +256,7 @@
     "category": "Movie",
     "rating": "PG",
     "isBookmarked": true,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -254,9 +269,10 @@
       }
     },
     "year": 2018,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "18+",
     "isBookmarked": false,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -272,6 +288,7 @@
     "category": "Movie",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -287,6 +304,7 @@
     "category": "Movie",
     "rating": "PG",
     "isBookmarked": true,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -302,6 +320,7 @@
     "category": "Movie",
     "rating": "18+",
     "isBookmarked": true,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -317,6 +336,7 @@
     "category": "Movie",
     "rating": "E",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -329,9 +349,10 @@
       }
     },
     "year": 2013,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -347,6 +368,7 @@
     "category": "Movie",
     "rating": "E",
     "isBookmarked": true,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -359,9 +381,10 @@
       }
     },
     "year": 2018,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -374,9 +397,10 @@
       }
     },
     "year": 2016,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "E",
     "isBookmarked": true,
+    "isRecommended": false,
     "isTrending": false
   },
   {
@@ -389,9 +413,10 @@
       }
     },
     "year": 2020,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -404,9 +429,10 @@
       }
     },
     "year": 2016,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "PG",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -422,6 +448,7 @@
     "category": "Movie",
     "rating": "18+",
     "isBookmarked": true,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -434,9 +461,10 @@
       }
     },
     "year": 2018,
-    "category": "TV Series",
+    "category": "TV",
     "rating": "18+",
     "isBookmarked": false,
+    "isRecommended": true,
     "isTrending": false
   },
   {
@@ -452,6 +480,7 @@
     "category": "Movie",
     "rating": "PG",
     "isBookmarked": true,
+    "isRecommended": false,
     "isTrending": false
   }
 ]

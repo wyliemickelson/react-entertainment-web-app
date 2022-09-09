@@ -2,28 +2,17 @@ import React, {useState} from 'react'
 import NavBar from './Nav/NavBar'
 import styled from 'styled-components';
 import PageContent from './PageContent'
+import SearchBar from './SearchBar';
 
 const StyledPage = styled.section`
-
+  
 `
 
 const modules = {
-  home: {
-    categories: ['Trending', 'Recommended'],
-    contentTypes: ['Movie', 'TV Series'],
-  },
-  movies: {
-    categories: ['Movies'],
-    contentTypes: ['Movie'],
-  },
-  tv: {
-    categories: ['TV'],
-    contentTypes: ['TV Series'],
-  },
-  bookmarks: {
-    categories: ['Bookmarked Movies', 'Bookmarked TV'],
-    contentTypes: ['Bookmarked', 'Movie', 'TV Series']
-  },
+  home: ['Trending', 'Recommended'],
+  movies: ['Movies'],
+  tv: ['TV'],
+  bookmarks: ['Bookmarked Movies', 'Bookmarked TV'],
 }
 
 const Page = () => {
@@ -36,7 +25,7 @@ const Page = () => {
   return (
     <StyledPage>
       <NavBar activePage={activePage} handlePageChange={handlePageChange} />
-      <PageContent activeCategories={modules[activePage].contentTypes} searchCategories={modules[activePage].categories}>
+      <PageContent activeModules={modules[activePage]}>
       </PageContent>
     </StyledPage>
   )

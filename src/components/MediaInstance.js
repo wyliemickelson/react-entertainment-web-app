@@ -1,24 +1,29 @@
 import React from 'react'
+import MediaDetails from './MediaDetails'
 import styled from 'styled-components';
-import MediaInstanceDetails from './MediaInstanceDetails';
+import Bookmark from './Bookmark';
 
 const StyledMediaInstance = styled.div`
-  width: 48%;
-  font-size: 13px;
-  margin-bottom: 1.5rem;
+  position: relative;
 
-  > img {
-    border-radius: 1rem;
+  img {
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 17px;
   }
 `
 
-const MediaInstance = ({ data }) => {
+const MediaInstance = ({ mediaData }) => {
   return (
     <StyledMediaInstance>
-      <img src={require(`${data.thumbnail.regular.small}`)} alt='media' />
-      <MediaInstanceDetails year={data.year} category={data.category} rating={data.rating} />
-      <h2>{data.title}</h2>
+      <img src={require(`${mediaData.thumbnail.regular.small}`)} />
+      <Bookmark isMarked={mediaData.isBookmarked} />
+      <MediaDetails mediaData={mediaData} />
+      <h2>{mediaData.title}</h2>
     </StyledMediaInstance>
   )
 }
+
 export default MediaInstance
