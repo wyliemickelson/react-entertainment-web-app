@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import MediaDetails from './MediaDetails'
 import styled from 'styled-components';
 import Bookmark from './Bookmark';
+import PlayButton from './PlayButton';
 
-const StyledMediaInstance = styled.div`
+const StyledMediaInstance = styled.button`
   position: relative;
   max-width: 560px;
 
@@ -19,7 +20,7 @@ const StyledMediaInstance = styled.div`
     font-size: 1rem;
   }
 
-  > div {
+  > section {
     ${props => props.isTrending && `
         position: absolute;
         left: 5%;
@@ -29,6 +30,7 @@ const StyledMediaInstance = styled.div`
 `
 
 const MediaInstance = ({ mediaData, isTrending, screenSize, setContentList }) => {
+  const [mouseIsHovered, setMouseIsHovered] = useState(false);
 
   let trendingscreenSize = screenSize;
   if (screenSize === 'medium') trendingscreenSize = 'large'
@@ -41,14 +43,18 @@ const MediaInstance = ({ mediaData, isTrending, screenSize, setContentList }) =>
     ))
   }
 
+  const handleMouseOver = () => setMouseIsHovered(true);
+  const handleMouseOut = () => setMouseIsHovered(false);
+
   return (
-    <StyledMediaInstance isTrending={isTrending}>
+    <StyledMediaInstance isTrending={isTrending} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
+      {mouseIsHovered && <PlayButton />}
       <img src={require(`${imagePath}`)} alt='media' />
       <Bookmark isMarked={mediaData.isBookmarked} onClick={handleBookmarkClick} />
-      <div>
+      <section>
         <MediaDetails mediaData={mediaData} />
         <h2>{mediaData.title}</h2>
-      </div>
+      </section>
     </StyledMediaInstance>
   )
 }

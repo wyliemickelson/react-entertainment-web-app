@@ -32,11 +32,11 @@ const StyledTrendingModule = styled.section`
     border: 3px none #ffffff;
   }
 
-    > div {
+    > button {
       display: inline-block;
     }
 
-    > div + * {
+    > button + * {
       margin-left: 1rem;
     }
   }
