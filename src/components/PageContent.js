@@ -44,10 +44,19 @@ const PageContent = ({ activeModules, screenSize }) => {
     return contentList.filter((media) => media.category === 'TV');
   }
 
+  const filterBySearch = () => {
+    let filteredList = contentList.filter((media) => media.title.toLowerCase().includes(searchValue.toLowerCase()))
+    if (activeModules.includes('Bookmarked Movies')) return filteredList.filter((media) => media.isBookmarked);
+    if (activeModules.includes('Movies')) return filteredList.filter((media) => media.category === 'Movie');
+    if (activeModules.includes('TV')) return filteredList.filter((media) => media.category === 'TV');
+    return filteredList;
+  }
+
   return (
     <StyledPageContent>
       <SearchBar categories={activeModules} value={searchValue} setValue={setSearchValue} />
-      {activeModules.map((module) => {
+      {searchValue !== "" && <ContentModule name='Search' contentList={filterBySearch()} screenSize={screenSize} />}
+      {searchValue === "" && activeModules.map((module) => {
         return module === 'Trending'
           ? <TrendingModule name={module} contentList={filterContent(module)} key={module} screenSize={screenSize} />
           : <ContentModule name={module} contentList={filterContent(module)} key={module} screenSize={screenSize} />

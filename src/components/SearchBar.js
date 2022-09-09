@@ -22,10 +22,16 @@ const SearchBar = ({ categories, value, setValue }) => {
 
   const handleChange = (e) => setValue(e.target.value);
 
+  const getPlaceholder = () => {
+    if (categories.some((cat) => cat.includes('Bookmarked'))) return 'Bookmarked Shows';
+    if (categories.includes('Trending')) return 'Movies or TV';
+    return categories;
+  }
+
   return (
-    <StyledSearchBar onChange={handleChange}>
+    <StyledSearchBar>
       <button><SearchIcon /></button>
-      <input type='text' placeholder={`Search for ${categories}`} value={value} />
+      <input type='text' placeholder={`Search for ${getPlaceholder()}`} value={value} onChange={handleChange} />
     </StyledSearchBar>
   )
 }
