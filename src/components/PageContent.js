@@ -55,11 +55,11 @@ const PageContent = ({ activeModules, screenSize }) => {
   return (
     <StyledPageContent>
       <SearchBar categories={activeModules} value={searchValue} setValue={setSearchValue} />
-      {searchValue !== "" && <ContentModule name='Search' contentList={filterBySearch()} screenSize={screenSize} />}
+      {searchValue !== "" && <ContentModule searchValue={searchValue} contentList={filterBySearch()} screenSize={screenSize} setContentList={setContentList} />}
       {searchValue === "" && activeModules.map((module) => {
         return module === 'Trending'
-          ? <TrendingModule name={module} contentList={filterContent(module)} key={module} screenSize={screenSize} />
-          : <ContentModule name={module} contentList={filterContent(module)} key={module} screenSize={screenSize} />
+          ? <TrendingModule name={module} contentList={filterContent(module)} key={module} screenSize={screenSize} setContentList={setContentList} />
+          : <ContentModule name={module} contentList={filterContent(module)} key={module} screenSize={screenSize} setContentList={setContentList} />
       })}
     </StyledPageContent>
   )

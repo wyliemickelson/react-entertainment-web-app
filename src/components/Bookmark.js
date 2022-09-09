@@ -20,9 +20,10 @@ const StyledBookmark = styled.button`
   }
 `
 
-const Bookmark = ({ isMarked }) => {
+const Bookmark = ({ isMarked, onClick }) => {
+
   return (
-    <StyledBookmark>
+    <StyledBookmark onClick={onClick}>
       {isMarked ? <BookmarkFull /> : <BookmarkEmpty />}
     </StyledBookmark>
   )

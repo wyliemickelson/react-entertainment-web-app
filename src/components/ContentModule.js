@@ -16,15 +16,15 @@ const StyledContentModule = styled.section`
   }
 `
 
-const ContentModule = ({ name, contentList, screenSize }) => {
+const ContentModule = ({ name, contentList, screenSize, searchValue, setContentList }) => {
 
   const moduleColumns = screenSize === 'large' ? 4 : screenSize === 'medium' ? 3 : 2;
 
   return (
     <StyledContentModule columns={moduleColumns}>
-      <h1>{name}</h1>
+      <h1>{searchValue ? `Found ${contentList.length} results for '${searchValue}'` : name }</h1>
       <ul>
-        {contentList.map((media) => <MediaInstance mediaData={media} key={media.title} screenSize={screenSize} />)}
+        {contentList.map((media) => <MediaInstance mediaData={media} key={media.title} screenSize={screenSize} setContentList={setContentList}/>)}
       </ul>
     </StyledContentModule>
   )

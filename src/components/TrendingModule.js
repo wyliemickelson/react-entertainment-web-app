@@ -23,14 +23,14 @@ const StyledTrendingModule = styled.section`
   }
 `
 
-const TrendingModule = ({ name, contentList, screenSize }) => {
+const TrendingModule = ({ name, contentList, screenSize, setContentList }) => {
 
   return (
     <StyledTrendingModule>
       <h1>{name}</h1>
       <ul>
         <ScrollContainer className='scroll-container'>
-          {contentList.map((media) => <MediaInstance mediaData={media} key={media.title} isTrending={true} screenSize={screenSize} />)}
+          {contentList.map((media) => <MediaInstance mediaData={media} key={media.title} isTrending={true} screenSize={screenSize} setContentList={setContentList} />)}
         </ScrollContainer>
       </ul>
     </StyledTrendingModule>
