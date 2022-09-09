@@ -18,12 +18,31 @@ export const GlobalStyles = createGlobalStyle`
 
   body, input {
     background-color: ${props => props.theme.darkest};
+     /* ===== Scrollbar CSS ===== */
+    /* Firefox */
+    scrollbar-width: 16px;
+    scrollbar-color: #5a698f #161d2f;
+
+    /* Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #161d2f;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #5a698f;
+     border-radius: 10px;
+     border: 3px none #ffffff;
+    }
   }
 
   button {
     all: unset;
     cursor: pointer;
-}
+  }
 
   input {
     border: none;

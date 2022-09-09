@@ -14,6 +14,7 @@ const StyledContentModule = styled.section`
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
+
 `
 
 const ContentModule = ({ name, contentList, screenSize, searchValue, setContentList }) => {

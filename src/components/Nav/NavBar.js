@@ -1,16 +1,13 @@
 import React from 'react'
 import avatar from './image-avatar.png'
 import styled from 'styled-components';
-import {ReactComponent as HomeIcon} from './icon-nav-home.svg'
-import {ReactComponent as MoviesIcon} from './icon-nav-movies.svg'
-import {ReactComponent as TvIcon} from './icon-nav-tv-series.svg'
-import {ReactComponent as BookmarkIcon} from './icon-nav-bookmark.svg'
-import {ReactComponent as SiteLogo} from './logo.svg'
-
-const icons = [<HomeIcon />, <MoviesIcon />, <TvIcon />, <BookmarkIcon />]
+import { ReactComponent as HomeIcon } from './icon-nav-home.svg'
+import { ReactComponent as MoviesIcon } from './icon-nav-movies.svg'
+import { ReactComponent as TvIcon } from './icon-nav-tv-series.svg'
+import { ReactComponent as BookmarkIcon } from './icon-nav-bookmark.svg'
+import { ReactComponent as SiteLogo } from './logo.svg'
 
 const StyledNav = styled.nav`
-
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: row;
@@ -54,6 +51,7 @@ const StyledNav = styled.nav`
   }
 
   ${props => props.screenSize === 'large' && `
+      position: fixed;
       flex-direction: column;
       justify-content: space-between;
       gap: 1rem;
@@ -65,9 +63,15 @@ const StyledNav = styled.nav`
       ul {
         justify-content: flex-start;
         flex-direction: column;
-        margin-bottom: 50vh;
       }
 
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8vh;
+      }
+      
       > img {
         max-width: 100%;
       }
@@ -78,13 +82,27 @@ const NavBar = ({ activePage, handlePageChange, screenSize }) => {
 
   return (
     <StyledNav activePage={activePage} screenSize={screenSize}>
-      <SiteLogo />
-      <ul>
-        <HomeIcon id='home' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
-        <MoviesIcon id='movies'onClick={(e) => handlePageChange(e.currentTarget.id)}/>
-        <TvIcon id='tv' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
-        <BookmarkIcon id='bookmarks' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
-      </ul>
+      {screenSize === 'large' ?
+        <div>
+          <SiteLogo />
+          <ul>
+            <HomeIcon id='home' onClick={(e) => handlePageChange(e.currentTarget.id)} />
+            <MoviesIcon id='movies' onClick={(e) => handlePageChange(e.currentTarget.id)} />
+            <TvIcon id='tv' onClick={(e) => handlePageChange(e.currentTarget.id)} />
+            <BookmarkIcon id='bookmarks' onClick={(e) => handlePageChange(e.currentTarget.id)} />
+          </ul>
+        </div>
+        : 
+        <>
+          <SiteLogo />
+          <ul>
+            <HomeIcon id='home' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
+            <MoviesIcon id='movies'onClick={(e) => handlePageChange(e.currentTarget.id)}/>
+            <TvIcon id='tv' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
+            <BookmarkIcon id='bookmarks' onClick={(e) => handlePageChange(e.currentTarget.id)}/>
+          </ul>
+        </>
+      }
       <img src={avatar} alt='avatar' className='avatar' />
     </StyledNav>
   )

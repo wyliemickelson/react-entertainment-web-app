@@ -8,6 +8,8 @@ const StyledPage = styled.section`
       display: flex;
       margin-top: 2.5vh;
   `}
+
+  
 `
 
 const modules = {
@@ -38,6 +40,7 @@ const Page = () => {
 
   const handlePageChange = (pageName) => {
     setActivePage(pageName);
+    window.scrollTop = document.documentElement.scrollTop = 0;
   }
 
 

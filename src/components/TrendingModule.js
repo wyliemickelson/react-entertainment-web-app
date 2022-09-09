@@ -9,9 +9,28 @@ const StyledTrendingModule = styled.section`
     margin-bottom: 1rem;
   }
 
-  .scroll-container {
+  .indiana-scroll-container {
     white-space: nowrap;
     overflow: auto;
+    /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+    scrollbar-width: 4px;
+    scrollbar-color: #5a698f #161d2f;
+
+  /* Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #161d2f;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #5a698f;
+    border-radius: 10px;
+    border: 3px none #ffffff;
+  }
 
     > div {
       display: inline-block;
@@ -29,7 +48,7 @@ const TrendingModule = ({ name, contentList, screenSize, setContentList }) => {
     <StyledTrendingModule>
       <h1>{name}</h1>
       <ul>
-        <ScrollContainer className='scroll-container'>
+        <ScrollContainer className='scroll-container' hideScrollbars={false}>
           {contentList.map((media) => <MediaInstance mediaData={media} key={media.title} isTrending={true} screenSize={screenSize} setContentList={setContentList} />)}
         </ScrollContainer>
       </ul>

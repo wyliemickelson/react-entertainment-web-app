@@ -6,6 +6,7 @@ import Bookmark from './Bookmark';
 const StyledMediaInstance = styled.div`
   position: relative;
   max-width: 560px;
+
   ${props => props.isTrending && `
       width: 70%;
   `}

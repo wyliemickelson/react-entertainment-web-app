@@ -9,11 +9,15 @@ import TrendingModule from './TrendingModule';
 const StyledPageContent = styled.section`
   width: 95%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1% 2.5% 5% 2.5%;
 
   section + section {
     margin-top: 2rem;
   }
+
+  ${props => props.screenSize === 'large' && `
+      margin-left: 145px;
+  `}
 `
 
 const PageContent = ({ activeModules, screenSize }) => {
@@ -53,7 +57,7 @@ const PageContent = ({ activeModules, screenSize }) => {
   }
 
   return (
-    <StyledPageContent>
+    <StyledPageContent screenSize={screenSize}>
       <SearchBar categories={activeModules} value={searchValue} setValue={setSearchValue} />
       {searchValue !== "" && <ContentModule searchValue={searchValue} contentList={filterBySearch()} screenSize={screenSize} setContentList={setContentList} />}
       {searchValue === "" && activeModules.map((module) => {
