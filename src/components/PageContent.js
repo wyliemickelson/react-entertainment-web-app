@@ -3,6 +3,7 @@ import SearchBar from './SearchBar'
 import styled from 'styled-components';
 import contentData from '../data.json';
 import ContentModule from './ContentModule';
+import TrendingModule from './TrendingModule';
 
 
 const StyledPageContent = styled.section`
@@ -46,7 +47,11 @@ const PageContent = ({ activeModules }) => {
   return (
     <StyledPageContent>
       <SearchBar categories={activeModules} value={searchValue} setValue={setSearchValue} />
-      {activeModules.map((module) => <ContentModule name={module} contentList={filterContent(module)} key={module} /> )}
+      {activeModules.map((module) => {
+        return module === 'Trending' 
+        ? <TrendingModule name={module} contentList={filterContent(module)} key={module} />
+        : <ContentModule name={module} contentList={filterContent(module)} key={module} /> 
+      })}
     </StyledPageContent>
   )
 }

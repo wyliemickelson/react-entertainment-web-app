@@ -5,6 +5,9 @@ import Bookmark from './Bookmark';
 
 const StyledMediaInstance = styled.div`
   position: relative;
+  ${props => props.isTrending && `
+      width: 200px;
+  `}
 
   img {
     border-radius: 8px;
@@ -13,15 +16,28 @@ const StyledMediaInstance = styled.div`
   h2 {
     font-size: 17px;
   }
+
+  > div {
+    ${props => props.isTrending && `
+        position: absolute;
+        left: 5%;
+        bottom: 5%;
+    `}
+  }
 `
 
-const MediaInstance = ({ mediaData }) => {
+const MediaInstance = ({ mediaData, isTrending }) => {
+
+  const imagePath = isTrending ? mediaData.thumbnail.trending.small : mediaData.thumbnail.regular.small;
+
   return (
-    <StyledMediaInstance>
-      <img src={require(`${mediaData.thumbnail.regular.small}`)} />
+    <StyledMediaInstance isTrending={isTrending}>
+      <img src={require(`${imagePath}`)} />
       <Bookmark isMarked={mediaData.isBookmarked} />
-      <MediaDetails mediaData={mediaData} />
-      <h2>{mediaData.title}</h2>
+      <div>
+        <MediaDetails mediaData={mediaData} />
+        <h2>{mediaData.title}</h2>
+      </div>
     </StyledMediaInstance>
   )
 }

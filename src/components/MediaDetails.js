@@ -20,7 +20,7 @@ const StyledMediaDetails = styled.div`
   }
 `
 
-const MediaDetails = ({ mediaData }) => {
+const MediaDetails = ({ mediaData}) => {
   return (
     <StyledMediaDetails>
       <p>{mediaData.year}</p>
