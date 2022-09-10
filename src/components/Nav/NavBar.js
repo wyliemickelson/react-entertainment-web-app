@@ -30,6 +30,10 @@ const StyledNav = styled.nav`
       }
       cursor: pointer;
     }
+
+    &:active {
+      transform: scale(1.2);
+    }
   }
 
    > img {

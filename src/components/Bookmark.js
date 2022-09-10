@@ -3,7 +3,7 @@ import { ReactComponent as BookmarkFull } from './assets/icon-bookmark-full.svg'
 import { ReactComponent as BookmarkEmpty } from './assets/icon-bookmark-empty.svg'
 import styled from 'styled-components';
 
-const StyledBookmark = styled.button`
+const StyledBookmark = styled.label`
   padding: 1rem;
   border-radius: 50%;
   background-color: ${props => props.theme.darkBlueClear };
@@ -19,13 +19,13 @@ const StyledBookmark = styled.button`
     transform: translate(-50%, -50%);
   }
 
-  ${props => props.mouseIsHovered && `
-    background-color: white;
+  &:active {
+    transform: scale(1.05);
+  }
 
-    svg {
-      path {
-        stroke: ${props.theme.darkBlue};
-      }
+  ${props => props.mouseIsHovered && `
+    background-color: ${props.theme.blue};
+    cursor: pointer;
     }
   `}
 `
@@ -37,10 +37,10 @@ const Bookmark = ({ isMarked, onClick }) => {
   const handleMouseOut = () => setMouseIsHovered(false);
 
   return (
-    <StyledBookmark onClick={onClick} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
-    mouseIsHovered={mouseIsHovered}>
-      {!isMarked || mouseIsHovered ? <BookmarkEmpty /> : <BookmarkFull />}
-    </StyledBookmark>
+      <StyledBookmark id='bookmark' onClick={onClick} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
+      mouseIsHovered={mouseIsHovered}>
+        {isMarked ? <BookmarkFull /> : <BookmarkEmpty />}
+      </StyledBookmark>
   )
 }
 

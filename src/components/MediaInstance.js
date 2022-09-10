@@ -7,14 +7,20 @@ import PlayButton from './PlayButton';
 const StyledMediaInstance = styled.button`
   position: relative;
   max-width: 560px;
-
-  ${props => props.isTrending && `
-      width: 70%;
-  `}
+  border-radius: 8px;
+  overflow: hidden;
 
   img {
     border-radius: 8px;
   }
+
+  img:hover {
+    opacity: 50%;
+  }
+
+  ${props => props.isTrending && `
+      width: 70%;
+  `}
 
   h2 {
     font-size: 1rem;
@@ -47,7 +53,8 @@ const MediaInstance = ({ mediaData, isTrending, screenSize, setContentList }) =>
   const handleMouseOut = () => setMouseIsHovered(false);
 
   return (
-    <StyledMediaInstance isTrending={isTrending} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
+    <StyledMediaInstance isTrending={isTrending} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} 
+    bookmarkIsHovered={true} imagePath={imagePath}>
       {mouseIsHovered && <PlayButton />}
       <img src={require(`${imagePath}`)} alt='media' />
       <Bookmark isMarked={mediaData.isBookmarked} onClick={handleBookmarkClick} />

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import {ReactComponent as IconPlay} from './assets/icon-play.svg'
 
 const StyledPlayButton = styled.div`
+  z-index: 5;
+  pointer-events: none;
   display: flex;
   position: absolute;
   left: 50%;
