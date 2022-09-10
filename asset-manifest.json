@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/react-entertainment-web-app/static/css/main.0febfc2c.css",
+    "main.js": "/react-entertainment-web-app/static/js/main.2a7ef449.js",
+    "static/media/Outfit-VariableFont_wght.ttf": "/react-entertainment-web-app/static/media/Outfit-VariableFont_wght.bc779fb16a97a6842a72.ttf",
+    "static/media/large.jpg": "/react-entertainment-web-app/static/media/large.7dbbfd3564efbdd81ccf.jpg",
+    "static/media/medium.jpg": "/react-entertainment-web-app/static/media/medium.e83a8f8613079eaac3fd.jpg",
+    "static/media/small.jpg": "/react-entertainment-web-app/static/media/small.5ca477474a05ffb3b6e6.jpg",
+    "index.html": "/react-entertainment-web-app/index.html",
+    "static/media/icon-category-movie.svg": "/react-entertainment-web-app/static/media/icon-category-movie.6861d0ce9036ac864b87dc5aff6570c3.svg",
+    "static/media/dot-svgrepo-com.svg": "/react-entertainment-web-app/static/media/dot-svgrepo-com.93aea47b25cb999f0af455daa7758fc5.svg",
+    "static/media/icon-nav-bookmark.svg": "/react-entertainment-web-app/static/media/icon-nav-bookmark.a564501ebcbde752ebe044260a9206b8.svg",
+    "static/media/icon-nav-movies.svg": "/react-entertainment-web-app/static/media/icon-nav-movies.c347442f9a6fd2201f1abf8819aa4ef6.svg",
+    "static/media/icon-bookmark-full.svg": "/react-entertainment-web-app/static/media/icon-bookmark-full.361afed00144e45cd54d64697d9a877d.svg",
+    "static/media/icon-nav-home.svg": "/react-entertainment-web-app/static/media/icon-nav-home.8acf660248afc7a27879c9c9bf218722.svg",
+    "static/media/icon-search.svg": "/react-entertainment-web-app/static/media/icon-search.cbc8d670ebd27b023c9868d5850d79c5.svg",
+    "static/media/logo.svg": "/react-entertainment-web-app/static/media/logo.7d4aedc9f44f15655a966567c57a1f37.svg",
+    "static/media/icon-category-tv.svg": "/react-entertainment-web-app/static/media/icon-category-tv.75c9208553d35303e2f1b61b511ab387.svg",
+    "static/media/icon-nav-tv-series.svg": "/react-entertainment-web-app/static/media/icon-nav-tv-series.c22fe1629b446365f6f7829a014453f8.svg",
+    "static/media/icon-play.svg": "/react-entertainment-web-app/static/media/icon-play.8371f8d28787ad27a68ec37af3a6c7b0.svg",
+    "static/media/icon-bookmark-empty.svg": "/react-entertainment-web-app/static/media/icon-bookmark-empty.20ce7177c045bbdbd7948bd9b4220c58.svg",
+    "main.0febfc2c.css.map": "/react-entertainment-web-app/static/css/main.0febfc2c.css.map",
+    "main.2a7ef449.js.map": "/react-entertainment-web-app/static/js/main.2a7ef449.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0febfc2c.css",
+    "static/js/main.2a7ef449.js"
+  ]
+}
