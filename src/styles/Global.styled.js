@@ -16,6 +16,10 @@ export const GlobalStyles = createGlobalStyle`
     color: white;
   }
 
+  body {
+    overflow-x: hidden;
+  }
+
   body, input {
     background-color: ${props => props.theme.darkest};
      /* ===== Scrollbar CSS ===== */

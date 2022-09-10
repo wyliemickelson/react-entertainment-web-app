@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import MediaInstance from './MediaInstance';
 import ScrollContainer from 'react-indiana-drag-scroll';
+import 'animate.css';
 
 const StyledTrendingModule = styled.section`
   h1 {
@@ -45,7 +46,7 @@ const StyledTrendingModule = styled.section`
 const TrendingModule = ({ name, contentList, screenSize, setContentList }) => {
 
   return (
-    <StyledTrendingModule>
+    <StyledTrendingModule className={['animate__animated', 'animate__fadeInDown']}>
       <h1>{name}</h1>
       <ul>
         <ScrollContainer className='scroll-container' hideScrollbars={false}>

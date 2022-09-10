@@ -10,6 +10,7 @@ const StyledPageContent = styled.section`
   width: 95%;
   margin: 0 auto;
   padding: 1% 2.5% 5% 2.5%;
+  padding-top: clamp(1rem, 1%, 1%);
 
   section + section {
     margin-top: 2rem;
